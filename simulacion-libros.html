@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Libros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="icono.ico" /> 
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simulación de Libros</h1>
+        <label for="numSimulaciones">Cantidad de simulaciones (días):</label>
+        <input type="number" id="numSimulaciones" placeholder="Ingrese el número de simulaciones">
+        <button onclick="iniciarSimulacion()">Iniciar Simulación</button>
+        <br>
+        <table id="tablaResultados">
+            <thead>
+                <tr>
+                    <th>Día</th>
+                    <th># Aleatorio</th>
+                    <th>Demanda</th>
+                    <th>1 Copia</th>
+                    <th>2 Copias</th>
+                    <th>3 Copias</th>
+                    <th>4 Copias</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los resultados de la simulación se insertarán aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Derechos reservados R.C.C &copy; 2025 - Investigacion Operativa</p>
+    </footer>
+
+    <script src="script-libros.js"></script>
+</body>
+</html>
