@@ -19,9 +19,9 @@ function iniciarSimulacion() {
         const random2 = Math.random();
         const random3 = Math.random();
 
-        const valor1 = random1 <= 0.5 ? 5 : 1;
-        const valor2 = random2 <= 0.5 ? 5 : 1;
-        const valor3 = random3 <= 0.5 ? 5 : 1;
+        const valor1 = random1 >= 0.5 ? 5 : 1;
+        const valor2 = random2 >= 0.5 ? 5 : 1;
+        const valor3 = random3 >= 0.5 ? 5 : 1;
 
         // Calcular la ganancia
         let ganancia = 0;
