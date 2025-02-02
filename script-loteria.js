@@ -8,16 +8,20 @@ function iniciarSimulacion() {
     const tablaBody = document.querySelector("#tablaResultados tbody");
     tablaBody.innerHTML = ""; // Limpiar la tabla antes de empezar
 
+    const listaGanadores = document.getElementById("listaGanadores");
+    listaGanadores.innerHTML = ""; // Limpiar la lista de ganadores antes de empezar
+
     let totalSuma = 0;
+    let ganadores = []; // Array para almacenar los ganadores
 
     for (let i = 1; i <= numSimulaciones; i++) {
         const random1 = Math.random();
         const random2 = Math.random();
         const random3 = Math.random();
 
-        const valor1 = random1 >= 0.5 ? 5 : 1; // Si el número aleatorio es <= 0.5, es 5; de lo contrario, 1
-        const valor2 = random2 >= 0.5 ? 5 : 1;
-        const valor3 = random3 >= 0.5 ? 5 : 1;
+        const valor1 = random1 <= 0.5 ? 5 : 1;
+        const valor2 = random2 <= 0.5 ? 5 : 1;
+        const valor3 = random3 <= 0.5 ? 5 : 1;
 
         // Calcular la ganancia
         let ganancia = 0;
@@ -28,6 +32,11 @@ function iniciarSimulacion() {
         }
 
         totalSuma += ganancia;
+
+        // Añadir ganador al array si corresponde
+        if (ganancia > 0) {
+            ganadores.push({ tarjeta: i, ganancia: ganancia });
+        }
 
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -47,4 +56,17 @@ function iniciarSimulacion() {
 
     document.getElementById('totalSuma').textContent = totalSuma;
     document.getElementById('gananciaEsperada').textContent = gananciaEsperada.toFixed(2);
+
+    // Mostrar los ganadores
+    if (ganadores.length > 0) {
+        ganadores.forEach(ganador => {
+            const li = document.createElement("li");
+            li.textContent = `Tarjeta Nº ${ganador.tarjeta} ganó ${ganador.ganancia}$`;
+            listaGanadores.appendChild(li);
+        });
+    } else {
+        const li = document.createElement("li");
+        li.textContent = "No hubo ganadores en esta simulación.";
+        listaGanadores.appendChild(li);
+    }
 }
