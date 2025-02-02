@@ -15,11 +15,18 @@ function iniciarSimulacion() {
         const random2 = Math.random();
         const random3 = Math.random();
 
-        const valor1 = random1 >= 0.5 ? 5 : 1;
-        const valor2 = random2 >= 0.5 ? 5 : 1;
-        const valor3 = random3 >= 0.5 ? 5 : 1;
+        const valor1 = random1 <= 0.5 ? 5 : 1; // Si el número aleatorio es <= 0.5, es 5; de lo contrario, 1
+        const valor2 = random2 <= 0.5 ? 5 : 1;
+        const valor3 = random3 <= 0.5 ? 5 : 1;
 
-        const ganancia = (valor1 === 5 && valor2 === 5 && valor3 === 5) ? 5 : 0;
+        // Calcular la ganancia
+        let ganancia = 0;
+        if (valor1 === 5 && valor2 === 5 && valor3 === 5) {
+            ganancia = 5; // Si es 5 5 5, la ganancia es 5
+        } else if (valor1 === 1 && valor2 === 1 && valor3 === 1) {
+            ganancia = 1; // Si es 1 1 1, la ganancia es 1
+        }
+
         totalSuma += ganancia;
 
         const row = document.createElement("tr");
